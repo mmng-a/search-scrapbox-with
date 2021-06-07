@@ -1,0 +1,43 @@
+{
+
+  "manifest_version": 2,
+  "name": "ScrapSearcher",
+  "version": "0.1.0",
+
+  "description": "Scrapboxでの検索結果を検索エンジンの隣に表示する",
+  "homepage_url": "https://twitter.com/_mmng_a",
+  "icons": {
+    "48": "icons/beasts-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [ "*://duckduckgo.com/*" ],
+      "js": [
+        "dist/app.js",
+        "dist/chunk-version.js"
+      ]
+    },
+    {
+      "matches": [ "*://www.google.com/search/*" ],
+      "js": [
+        "src/main.js",
+        "src/load.js",
+        "src/google.js",
+        "src/App.vue",
+        "src/Project.vue"
+      ]
+    }
+  ],
+
+  "permissions": [
+    "*://scrapbox.io/*"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/beasts-32.png",
+    "default_title": "Beastify",
+    "default_popup": "popup/choose_beast.html"
+  }
+
+}
